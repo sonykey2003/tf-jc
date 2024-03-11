@@ -2,12 +2,16 @@
 Extending the mighty managabilities of JumpCloud to the server assets. 
 
 ### What It Does
-
 * Create an environment with the number of servers you chose - `Windows Server 2022` & `<Linux Distro TBD>` (public AMI).
 * These servers will sit in the same subnet with a security group set to allow communications between themselves by default. 
 * Auto detects and whitelists your public IP to be allowed for `RDP`, `WinRM`, and `SSH`.
 * Flexible provisioning via `prep-ad.ps1` script (featured AWS `user_data`). 
 * The secrets defined as variables will have exposures in `user-data` (in the instance setting) by design, so pls think twice and implement a better obfuscation if you plan to go beyond **testing**, and remember to run `terraform destroy` once the test is done. 
+
+### Prerequisites
+* The latest version of [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform)
+* Use profile based auth for [AWS Cli](https://developer.hashicorp.com/terraform/install?product_intent=terraform).
+  * You may refer to this post if you haven't setup JumpCloud [SSO for AWS](https://community.jumpcloud.com/t5/best-practices/setting-up-sso-for-aws-iam-or-aws-identity-center/m-p/2702#M123) to support this use caes. 
 
 ### Getting Started
 * Rename file `example_secret_tf` to `secret.tf`.

@@ -38,3 +38,4 @@ terraform.rc
 
 # Ingore all the secre VARs
 secret*
+*.pem
