@@ -11,6 +11,7 @@ Extending the mighty managabilities of JumpCloud to the server assets.
 
 ### Getting Started
 * Rename file `example_secret_tf` to `secret.tf`.
+* Change the region if your preferred one is not Singapore, in `vars.tf`, at line 16. 
 * Fill in the desired passwords, user names and your JumpCloud [Connect Key](https://jumpcloud.com/support/understand-the-agent) in `ad_vars.tf`. 
   * **Note**: Never Ever expose this file anywhere. 
 * It will create a new VPC and use `10.10.0.0/16` CIDR, subsequently a subnet `10.10.10.0/24` will be created for placing the VMs. Please make sure it has no conflict in your existing infra. 
