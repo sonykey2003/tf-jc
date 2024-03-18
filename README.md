@@ -23,15 +23,24 @@ Extending the mighty managabilities of JumpCloud to the server assets.
 * It will create a new VPC and use `10.10.0.0/16` CIDR, subsequently a subnet `10.10.10.0/24` will be created for placing the VMs. Please make sure it has no conflict in your existing infra. 
 * DO NOT expose `secret.tf` and your tf state file in any occasion, these files contain passwords and secrets. 
 * Fire it UP!
-```hcl
+```sh
 # You might need to refresh your SSO token:
 aws sso login --profile your-sso-profile
 
+# For windows
 Terraform plan -var your-jc-username=$USER \
   -var my-aws-profile=your-sso-profile
 
 Terraform apply -var your-jc-username=$USER \
   -var my-aws-profile=your-sso-profile
+
+# For Linux - an empty .pem file needs to be present
+touch linux-key-pair.pem && Terraform plan -var your-jc-username=$USER \
+  -var my-aws-profile=your-sso-profile
+
+Terraform apply -var your-jc-username=$USER \
+  -var my-aws-profile=your-sso-profile
+
 ```
 * Instances' IPs and login info will be presented as output, like:
 ```json

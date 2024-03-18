@@ -45,25 +45,6 @@ data "aws_ami" "amzn2" {
   
 }
 
-# JC agent installation data
-data "cloudinit_config" "jcagent" {
-  gzip = false
-  base64_encode = false
-  part {
-    filename = "jcagent.sh"
-    content_type = "text/x-shellscript"
-    content = templatefile(
-                 "${path.module}/jcagent.sh",
-                 {
-                  jc_conn_key = var.jc-connect-key
-                 }
-              )
-  }
-
-  
-}
-
-
 # AWS Vars
 variable "your-jc-username" {
   type = string
